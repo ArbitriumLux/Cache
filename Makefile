@@ -2,10 +2,10 @@
 build: 
 	mkdir artifacts
 	cd artifacts
-	cp ./configs/config.toml ./artifacts/
+	cp ./configs/server.toml ./artifacts/
 	cp -r ./static/ ./artifacts/
-	go build -v ./Avito
-	cp ./Avito.exe ./artifacts/
+	go build -v ./Cache-master
+	cp ./Cache-master.exe ./artifacts/
 	
 
 .PHONY: test
