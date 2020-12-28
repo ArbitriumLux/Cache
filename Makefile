@@ -5,7 +5,7 @@ build:
 	cp ./configs/server.toml ./artifacts/
 	cp -r ./static/ ./artifacts/
 	go build -v main.go
-	cp ./main.exe ./artifacts/
+	cp main.exe ./artifacts/
 	
 
 .PHONY: test
