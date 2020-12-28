@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>The App</title>
+</head>
+<body>
+<div class = "container">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+              <th scope="col">Key</th>
+              <th scope="col">Value</th>
+            </tr>
+            </thead>
+        <tbody>
+          </tr>
+        {{ range $key, $value := .}}
+        <tr><td>{{ $key }}</td><td>{{ $value }}</td></tr>   
+        {{end}}
+    </tbody>    
+    </table>
+</div>
+<div>
+  <form method="POST" action="/save">
+    <button type="submit" class="btn btn-primary">Save Cache</button>
+    </form>
+</div>
+<div>
+    <form method="POST" action="/set">
+        <div class="form-group">
+          <label for="exampleInputText">Key</label>
+          <input type="text" class="form-control" id="exampleFormControlText1" name="Key">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputText">Value</label>
+          <input type="text" class="form-control" id="exampleFormControlText1" name="Value">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputText">Duration</label>
+          <input type="text" class="form-control" id="exampleFormControlText1" name="Duration">
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+    <div>
+      <form method="POST" action="/delete">
+        <div class="form-group">
+        <label for="exampleInputText">Key</label>
+        <input type="text" class="form-control" id="exampleFormControlText1" name="Key1">
+      </div>
+      <button type="submit" class="btn btn-primary">Delete</button>
+      </form>
+    </div>
+<div>
+  <form method="POST" action="/keys">
+    <div class="form-group">
+      <label for="exampleInputText">Key</label>
+      <input type="text" class="form-control" id="exampleFormControlText1" name="Key2">
+    </div>
+    <button type="submit" class="btn btn-primary">Keys</button>
+</form>
+</div>
+
+</body>
+</html>
