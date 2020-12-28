@@ -4,7 +4,7 @@ build:
 	cd artifacts
 	cp ./configs/server.toml ./artifacts/
 	cp -r ./static/ ./artifacts/
-	go build -v ./Cache-master
+	go build -v
 	cp ./Cache-master.exe ./artifacts/
 	
 
