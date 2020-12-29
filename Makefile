@@ -2,10 +2,10 @@
 build: 
 	mkdir artifacts
 	cd artifacts
-	cp ./configs/server.toml ./artifacts/
+	cp -r ./configs/ ./artifacts/
 	cp -r ./static/ ./artifacts/
 	go build -v main.go
-	cp main.exe ./artifacts/
+	cp main ./artifacts/
 	
 
 .PHONY: test
