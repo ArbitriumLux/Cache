@@ -29,7 +29,7 @@ func New(config *Config) *Server {
 		config: config,
 		logger: logrus.New(),
 		router: mux.NewRouter(),
-		cache:  cache.New(5*time.Minute, 10*time.Second),
+		cache:  cache.New(5*time.Minute, 10*time.Minute),
 	}
 }
 
@@ -113,6 +113,7 @@ func (s *Server) Delete(w http.ResponseWriter, r *http.Request) {
 	defer s.cache.Unlock()
 	key := r.FormValue("Key1")
 	delete(s.cache.Items, key)
+	http.Redirect(w, r, "/map", 301)
 }
 
 //Keys ...
@@ -144,8 +145,9 @@ func (s *Server) Save(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("error:", err)
 	}
 	myjson := []byte(b)
-	error := ioutil.WriteFile("D:/PEPE.txt", myjson, 0777)
+	error := ioutil.WriteFile("Cache.txt", myjson, 0777)
 	if error != nil {
 		fmt.Println(error)
 	}
+	http.Redirect(w, r, "/map", 301)
 }
